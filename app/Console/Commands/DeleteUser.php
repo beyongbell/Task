@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\User;
 use Illuminate\Console\Command;
 
 class DeleteUser extends Command
@@ -11,14 +12,14 @@ class DeleteUser extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'delete:user';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Delete User Table';
 
     /**
      * Create a new command instance.
@@ -37,6 +38,7 @@ class DeleteUser extends Command
      */
     public function handle()
     {
-        return 0;
+        User::first()->delete();
+        $this->info('Delete User Success');
     }
 }
